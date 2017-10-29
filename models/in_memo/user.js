@@ -22,11 +22,11 @@ async function getUsers (params) {
 }
 
 async function getUserById (userId) {
-  return users.find(u=>u._id === userId);
+  return users.find(u=>u._id === Number(userId));
 }
 
 async function updateUserById (userId, update) {
-  const user = users.find(u=>u._id === userId)
+  const user = users.find(u=>u._id === Number(userId))
   if(update.name) user.name = update.name;
   if(update.age) user.age = update.age;
 }

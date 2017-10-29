@@ -21,13 +21,13 @@ router.route('/')
   })
   .post((req, res, next)=> {
     (async () => {
-        let users = await User.createANewUser({
+        let user = await User.createANewUser({
           name: req.body.name,
           age: req.body.age,
         })
       return {
         code: 0,
-        users: users,
+        user: user,
       }
     })()
         .then(r => {
@@ -56,7 +56,7 @@ router.route('/:id')
   })
   .patch((req, res) => {
     (async () => {
-      let user = await User.updateUserById(Number(req.params.id),{
+      let user = await User.updateUserById(req.params.id,{
         name: req.body.name,
         age: req.body.age,
       })
