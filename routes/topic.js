@@ -57,7 +57,7 @@ router.route('/:id')
         next(e)
       })
   })
-  .patch((req, res) => {
+  .patch((req, res, next) => {
     (async () => {
       let topic = await Topic.updateTopicById(Number(req.params.id),{
         name: req.body.name,
@@ -78,7 +78,7 @@ router.route('/:id')
 
 router.route('/:id/reply')
   .post((req, res, next) => {
-  (async () => {
+    (async () => {
       const user = await User.getUserById(req.body.userId)
       let topic = await Topic.replyATopic({
         topicId: req.params.id,
@@ -89,7 +89,7 @@ router.route('/:id/reply')
         code: 0,
         topic: topic,
       }
-  })()
+    })()
       .then(r => {
         res.json(r)
       })

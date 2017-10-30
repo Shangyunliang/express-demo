@@ -1,5 +1,5 @@
 let USER_ID_INIT =  10000;
-users = [];
+let users = [];
 
 class User {
   constructor (params) {
@@ -16,7 +16,7 @@ async function createANewUser (params) {
   return user
 }
 
-
+// eslint-disable-next-line
 async function getUsers (params) {
   return users;
 }

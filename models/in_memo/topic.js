@@ -1,11 +1,11 @@
 let TOPIC_ID_INIT =  10000;
-topics = [];
+let topics = [];
 
 class Topic {
   constructor (params) {
-    if(!params.creator) throw {code: -1, msg:"a topic must be send by a user"};
-    if(!params.title) throw {code: -1, msg:"a topic must contain a title"};
-    if(params.content.length < 5) throw {code: -1, msg:"a topic's content must be longer than 5 characters"};
+    if(!params.creator) throw {code: -1, msg:'a topic must be send by a user'};
+    if(!params.title) throw {code: -1, msg:'a topic must contain a title'};
+    if(params.content.length < 5) throw {code: -1, msg:'a topic\'s content must be longer than 5 characters'};
     this._id = TOPIC_ID_INIT ++;
     this.title = params.title;
     this.content = params.content;
@@ -20,7 +20,7 @@ async function createANewTopic (params) {
 }
 
 
-async function getTopics (params) {
+async function getTopics () {
   return topics;
 }
 
@@ -30,12 +30,6 @@ async function getTopicById (topicId) {
 
 async function updateTopicById (topicId, update) {
   const topic = topics.find(u=>u._id === topicId)
-  if(update.name) topic.name = update.name;
-  if(update.age) topic.age = update.age;
-}
-
-async function updateTopicById (topicId, update) {
-  const topic = topics.find(u=>u._id === topicId);
   if(update.name) topic.name = update.name;
   if(update.age) topic.age = update.age;
 }
