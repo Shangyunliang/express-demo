@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const User = require('../models/in_memo/user');
-const Topic = require('../models/in_memo/topic');
+const User = require('../models/mongo/user');
+const Topic = require('../models/mongo/topic');
 
 /* GET topics listing. */
 router.route('/')
