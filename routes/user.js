@@ -24,6 +24,8 @@ router.route('/')
       let user = await User.createANewUser({
         name: req.body.name,
         age: req.body.age,
+        password: req.body.password,
+        phoneNumber: req.body.phoneNumber,
       })
       return {
         code: 0,
